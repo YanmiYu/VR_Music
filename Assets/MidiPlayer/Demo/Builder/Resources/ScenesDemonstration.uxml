@@ -1,0 +1,9 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/MidiPlayer/Demo/Builder/Resources/MaestroStyle.uss?fileID=7433441132597879392&amp;guid=cc1e44a517afab84680cd5c83fcc5290&amp;type=3#MaestroStyle" />
+    <ui:GroupBox name="gbHeader" style="flex-direction: row; background-color: rgb(200, 200, 200); color: rgb(0, 0, 0); margin-left: 0; margin-right: 0; margin-top: 0; margin-bottom: 0; border-bottom-width: 0; border-left-width: 0; border-right-width: 0; border-top-width: 0; justify-content: space-around;">
+        <ui:Label text="Maestro MPTK Demonstration" display-tooltip-when-elided="true" name="labTitle" style="font-size: 20px; white-space: normal; -unity-text-align: middle-center; align-items: auto; height: 65px; width: 755px;" />
+        <ui:Button display-tooltip-when-elided="true" name="btWebSite" style="background-image: resource(&apos;Logo_MPTK&apos;); width: 64px; height: 64px; padding-left: 6px; margin-left: 3px; flex-direction: row; align-items: flex-end;" />
+        <ui:Button display-tooltip-when-elided="true" name="btQuit" style="background-image: resource(&apos;Textures/quit&apos;); width: 64px; height: 64px; background-color: rgba(200, 200, 200, 0); border-left-width: 0; border-right-width: 0; border-top-width: 0; border-bottom-width: 0; flex-direction: row; align-items: flex-end;" />
+    </ui:GroupBox>
+    <ui:ScrollView scroll-deceleration-rate="1" elasticity="0.1" name="scrollView" mouse-wheel-scroll-size="20" />
+</ui:UXML>

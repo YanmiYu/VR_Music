@@ -1,0 +1,17 @@
+{
+    "name": "MidiPlayer.Demo",
+    "rootNamespace": "",
+    "references": [
+        "GUID:82606d536e5b6a142a8b4d4879c5546c",
+        "GUID:47decbe7e7732fb4c888e59bd21708cf"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": true,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

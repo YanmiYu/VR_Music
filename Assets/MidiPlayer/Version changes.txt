@@ -1,0 +1,194 @@
+Please, read this before updating:
+   - Backup your own project
+   - If you get errors after updating, please quit Unity Editor and reload your project (GUID must be updated).
+   - If you are updating from an older version and errors persist, delete the MidiPlayer folder from your project and reinstall Maestro.
+
+Maestro MPTK attained the age of maturity. This new version is mainly focused on consistency and simplification.
+I hope you will appreciate it!
+
+Thank for your comments and talks, that help a lot to make Maestro better.
+
+V2.14.0 2024-12-22
+	New Features
+		Unlock global volume up to 10 (by default, limited to 1). Add script symbols MPTK_UNLOCK_VOLUME to unlock. Experimental, use with caution.
+		Unlock MIDI player speed from 0.0001 to 100 (by default between to 0.1 and 10). Add script symbols MPTK_UNLOCK_SPEED to unlock. Experimental, use with caution.
+		Add optionnal wait time to MPTK_Stop for waiting until MIDI is really stopped.
+		Improve MPTK debug mode with MPTK_BuildInfoSynth.
+		Move Maestro menu to Unity Tools menu when MPTK_MAESTRO_MENU_TOOLS symbol is defined.
+		Soundfont caching is now optional when loading SF dynamically, see MidiPlayerGlobal.MPTK_LoadLiveSF. 
+		Add MPTK_ResetTranspose to force cancel transpose when looping on a MIDI.
+	Demo & MVP
+		TestOboe: redesign (again!). Also good on non-Android devices for latency analysis.
+		TestLoadingExternalSoundFont: redesign
+		Create MVP demo MidiKeyboardThread
+	Fix
+		Correct Oboe setting to correct bad sound on some devices (buffer not a multiple of 64). 
+		Correct MIDI thread reader with OnAudio callback to improve accuracy.
+		Restore initial transpose value when looping.
+
+V2.13.2 2024-10-31
+	New Features
+		Based on Unity version 2022.3
+		MidiStream player: Extended to 256 channels. 
+		MPTKWriter: Create MIDI until 256 channels (but not for writing).
+		MPTK_DebugActiveVoice added for advanced use.
+		Added new stat in MIDI file setup.
+	Demo & MVP
+		TestMidiExternalPlayer: Add measure calculation and innerloop capabilities, UI redesign.
+		TestOboe: UI redesign.
+		TestMidiStreamPlayer: Able to play with 32 channels.
+	Fixes
+		Replace obsolete method in Unity 6.
+		Correct synth attenuation range, limit to 1440.
+		HelperDemo: replaced method LabelC4FromMidi with method LabelFromMidi. Now label centred in C4 (60 return C4). Removed LabelFromEcart method.
+		MPTKWriter: Correct TickLast.
+		Effect with oboe: process in blocks of 64 improve the quality.
+		In folder MPTKGameObject/Pro, rename files MPTKEffect____.cs to MPTKEffect____Pro.cs. 
+		In folder MPTKGameObject, create partial class MPTKEffect____.cs.
+		Correct build error
+		Correct transposition error
+
+
+V2.12.1 2024-06-18
+	New Features
+		MPTK_ThreadMidiPriority: MIDI thread priority to improve reading stability. 
+		MPTK_ThreadMidiWait: MIDI thread waiting in milliseconds. 
+		IntegratedThreadMidi: MIDI reader integrated into the audio thread for more stable reading (can only be set by the inspector).
+		MPTK_CalculateTiming: Now, refresh all timing in the MIDI file: Tempo Map, Signature Map, Realtime, Measure, Beat.
+		MPTK_EventLastNote: Get the last MIDI event which holds a note-on.
+		MPTK_FindLastNote: Find the last MIDI event note-on.
+		MPTK_StopPlayOnLastNote: MIDI playing stop at the last note found in the MIDI.
+	Demo & MVP
+		TestMidiFilePlayerScript: new possibilities for "Modify MIDI And Play" feature and redesign.
+		EuclideanRhythm: light redesign.
+	Fixes
+		Correct MPTKTempo.FindSegment from a time (thanks cihadturhan_unity).
+		Correct MidiFilePlayer.Duration: now take into account the duration of the last note-on event (thanks Izanol).
+
+V2.12.0 2024-05-26
+	New Features
+		Update of the core MIDI synth from fluidsynth 1.3 to fluidsynth 2.3. Incredible new sound!
+		Ability to read and write META text with UTF8 encoding (out of MIDI standard).
+		DSP and iir filters in 64 bits.
+		Added MPTK_RawSeek function for instant looping.
+		Added MPTK_WebRequestError attribute for MidiFileExternalPlayer.
+	Demo & MVP
+		Added MIDI Viewer. Some colored line effects that move in relation to the music.
+		Added MVP demo TheSimplestRandomPlayer.
+		Added inner loop in TestMidiFilePlayerScript demo.
+		New MVP demo load midi and play.
+	Fixes
+		Oboe integration - correct assembly + many bugs.
+		Apply UI scale to all IMGUI demos.
+	Deprecated
+		MidiFilePlayer.MPTK_PulseLength deprecated, replaced by MPTK_Pulse.
+
+V2.11.2 2024-07-02
+	New
+		Split MPTK sources in three assemblies for Demo, Editor and Run for better building perf.
+		Enhanced API for loading external SoundFont at runtime.
+		Add cache for external SoundFont loading at runtime.
+		Not mandatory to have a SoundFont for building an app.
+		Create demo load external SF from Demo Pro.
+		Add MPTK_StartSynth (could be usefull after a MPTK_StopSynth!)
+		Add directive UNITY_EDITOR to all editor scripts for better building perf.
+
+V2.11.1 2023-12-12
+	Fix
+		Remove weird using inserted by Unity.
+		Realign MIDI list events in demo TestMidiFileLoad.
+
+V2.11.0 2023-12-01
+	New
+		Class MptkChannel centralize all members related to MIDI channel.
+		Member MPTK_Channels in MidiSynth (and children MidiFilePlayer, MidiStreamPlayer, ...).
+		Class MPTKEffectSoundFont (pro).
+		Member MPTK_EffectSoundFont in MidiSynth (and children MidiFilePlayer, MidiStreamPlayer, ...).
+		Class MPTKEffectUnity (pro).
+		Member MPTK_EffectUnity in MidiSynth (and children MidiFilePlayer, MidiStreamPlayer, ...).
+		See detailed helper document for migration.
+	Change
+		Move members MPTK_Channelxxxx from MidiSynth class to MPTKChannel class.
+		MPTKRangeLib has been renamed to MPTKScaleLib and globally all members contraining Range by Scale (pro).
+		MidiFileWriter2 renamed to MPTKWriter (pro) and simplified.
+		MPTK_EnableChangeTempo available in inspector for all prefab.
+		MPTK_EnablePresetDrum available in the inspector.
+	Demo and MVP
+		New design and enhanced script clarity for TestMidiStream.
+		New design and enhanced script clarity for TestMidiFilePlayer.
+		New design and enhanced script clarity for TestMidiGenerator.
+	Fix
+		ADSR calculation for a better sound.
+		Extraction sample which stop in some cases.
+		No MIDI playing in editor mode with MidiFileSetup.
+	Deprecated 
+		MidiFileLoader, please consider using MidiFilePlayer.
+		MidiFileWriter2, please consider using MPTKWriter.
+
+V2.10.0 2023-08-27
+	New 
+		class MPTKInnerLoop (pro)
+		class MPTKTempo
+		class MPTKSignature
+		Measure/beat calculation capabilities
+		MPTKEvent
+			Measure and beat attributes calculated when a MIDI is loaded
+			Processing "System Real Time" MIDI events 
+		MidiFileWriter2 (pro)
+			MPTK_TempoMap as a list of MPTKTempo
+			MPTK_SignMap as a list of MPTKSignature
+			MPTK_CalculateTiming()
+			MPTK_DurationTickToMilli() and MPTK_DurationMilliToTick()
+		MidiLoad
+			MPTK_TempoMap as a list of MPTKTempo (tempo change in the MIDI)
+			MPTK_SignMap as a list of MPTKSignature (signature change in the MIDI)
+		MidiSynth
+			OnBeatEvent (pro)
+	Demo and MVP
+		Demo TestInnerLoop (pro)
+		Metronome with TestMidiFilePlayerScripting (OnQuarter event with pro)
+		Update demo TestMidiKeyboard for sending or receiving "System Real Time" MIDI event (pro)
+		Update demo TestMidiGenerator (simplification) + demo adding Inner Loop with META event (pro)
+	Correction
+		MidiFilePlayer: correct issue last notes not dequeueed at the end of the MIDI
+		SoundFont setup: orrect LoadType change not applied when extracting samples
+		global: correct build error (reference to Unity Editor)
+	Change
+		Midi Editor (pro)
+			Displaying measures in Midi Editor with time signature change
+			Looping based on the new MPTKInnerLoop class
+			Mute/unmute channel
+			Open or close section
+			Add button prev/next measure 
+			Add tooltip
+			Add editable META text and Tempo section 
+		Midi Sequencer
+			Able to disable WaitThreadMidi in the inspector for accurate timing precision
+		MidiFileWriter2 (pro)
+			MPTK_Addxxxx methods now return the MIDI event created. 
+			Split MPTK_ConvertTickToMilli and MPTK_DurationTickToMilli and now based on Tempo_Map
+			Enhancement for MPTK_ImportFromEventsList
+			MPTK_ConvertMilliToTick and MPTK_ConvertTickToMilli based on the Tempo map
+		MidiSynth (pro)
+			OnMidiEvent must return a boolean (change from C# Action to Func) to keep or skip the event.
+			OnMidiEvent must return a boolean. true to keep the event, false to skip it.
+			Check that DSPBufferSize is a multple of 64, display an error in case of not.
+		SetTempo store only microsecondsPerQuarterNote in value, BPM is not stored in Duration
+	Others
+		Maestro prefabs added to the scene as a link to the original prefab.
+
+	Deprecated attributes and methods
+		MPTKEvent.Duration role for event other than note-on is deprecated (please see API documentation)
+		MidiFilePlayer.MPTK_Loop is deprecated. Please investigate MPTK_MidiRestart or MPTK_InnerLoop (Pro) for a better looping accuracy.
+		MPTKEvent.Duration no longer contains tempo in quarter per minute. Please investigate MPTKEvent.MPTK_MPQN2BPM()
+		MidiLoad.MPTK_PulseLenght is deprecated please investigate MPTK_Pulse in place
+		MidiLoad.MPTK_ConvertTickToTime is deprecated and will be removed. Please investigate the tempo map capabilities, see MPTK_TempoMap.
+		MidiLoad.MPTK_ConvertTimeToTick is deprecated and will be removed. Please investigate the tempo map capabilities, see MPTK_TempoMap.
+		MidiLoad.MPTK_BPM2MPQN is deprecated and will be removed. Please investigate MPTKEvent.MPTK_BPM2MPQN.
+		MidiLoad.MPTK_MPQN2BPM is deprecated and will be removed. Please investigate MPTKEvent.MPTK_MPQN2BPM.
+		MidiFileWriter2.MPTK_NumberBeatsMeasure please investigate MPTK_SignMap and MPTK_CalculateTiming()
+		MidiFileWriter2.MPTK_GetMicrosecondsPerQuaterNote is deprecated and will be removed. Please consider MptkEvent.MPTK_BPM2MPQN
+		MidiFileWriter2.MPTK_BPM2MPQN is deprecated and will be removed. Please consider MptkEvent.MPTK_BPM2MPQN
+		MidiFileWriter2.MPTK_MPQN2BPM is deprecated and will be removed. Please consider MptkEvent.MPTK_MPQN2BPM
+
+*** Read the full version change directly in the Asset/MidiPlayer folder 
