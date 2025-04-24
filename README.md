@@ -1,50 +1,64 @@
-![Starter Samples Banner](./Documentation/Medias/banner.png "StarterSamples")
+# 🎹 VR Music Visualization with MIDI + Maestro MPTK
 
-# Unity Starter Samples
-The starter samples you will find here are to help you navigate and understand our APIs with more flexibility. We encourage you to look into them, test them out and inspire yourself on how the APIs can be used in your own project.
+This Unity project is a VR/3D music visualization tool that converts MIDI files into real-time moving blocks in 3D space. It is built using the Unity Starter Samples and enhanced with Maestro MPTK for MIDI playback.
 
-The [Oculus License](./LICENSE) applies to the samples.
+Each note is visualized as a cube whose position, size, and color reflect the musical characteristics of pitch, duration, and velocity. The user can interact with the whole visualization using keyboard or UI-based movement and rotation controls.
 
-This project was built using the [Unity engine](https://unity.com/download).
+## 🔧 Built On
+- ✅ **Unity Starter Samples** – as the foundation
+- ✅ **Maestro MPTK (MIDI Player Toolkit)** – to parse and play MIDI in Unity
+  - *Getting Started Tip*: See [Maestro MPTK Setup Guide](https://www.vrwiki.cs.brown.edu/vr-development-software/development-tutorials/unity3d-tutorial/midi-data-visualization-using-maestro-midi-player-tool-kit)
 
-## Getting The Code
-Clone this repo using the "Code" button above, or this command:
-```sh
-git clone https://github.com/oculus-samples/Unity-StarterSamples.git
-```
+## ✨ Features
+- 🔷 **Dynamic 3D cube generation** based on MIDI notes:
+  - Pitch → Z-position + Color
+  - Velocity → Y-scale (height)
+  - Duration → X-scale (width)
+- 📦 **Efficient queueing system** to keep only the most recent blocks (max 10 per track)
+- 🧭 **Interactive 3D Navigation Controls**:
+  - Move and rotate the entire visualization using simple function calls
+- 🎵 **Song Selection System**:
+  - Use building blocks to change songs (e.g., Button A for MidiFilePlayer1, Button B for MidiFilePlayer2)
 
-## How to run the project in Unity
-1. Make sure you're using  *Unity 2022.3.15f1* or newer.
-2. In the Project window, navigate to [Assets/StarterSamples/Usage](Assets/StarterSamples/Usage).
-3. Click on individual scenes.
-4. Click **Play** button to explore scene functionality in Unity.
+## 🕹️ Movement & Rotation Controls
+You can bind these functions to UI buttons or keyboard shortcuts:
 
-## How to test on device
-1. Navigate to **Meta** > **Samples** > **Build Starter Scene** to build an APK that will launch the **Starter Scene**.
-    <div style="margin-left: 4.5em;"><img src="./Documentation/Medias/buildsamples.png" width="300"></div>
-    * In this apk you will be able to cycle through the different sample scenes to test them out on device.
-2. Navigate to the `Unity-StarterSamples` folder and copy the `StartScene.apk` to your device using [Meta Quest Developer Hub](https://developer.oculus.com/documentation/unity/ts-odh-deploy-build/).
+| Function        | Action                                  |
+|-----------------|-----------------------------------------|
+| `MoveUp()`      | Move the visualization upward          |
+| `MoveDown()`    | Move it downward                       |
+| `MoveLeft()`    | Move it left                           |
+| `MoveRight()`   | Move it right                          |
+| `MoveForward()` | Move it forward (Z+)                   |
+| `MoveBackward()`| Move it backward (Z−)                  |
+| `RotateLeft()`  | Rotate the visualization left          |
+| `RotateRight()` | Rotate the visualization right         |
 
-## SDK Dependencies
-All Meta SDKs can be found in the [Unity Asset Store](https://assetstore.unity.com/publishers/25353).
-This project depends on SDKs defined in the [Packages/manifest.json](./Packages/manifest.json):
-* [Meta XR Core SDK](https://assetstore.unity.com/packages/tools/integration/meta-xr-core-sdk-269169)
+## 📁 How to Use
+1. Clone this repo:
+   ```bash
+   git clone https://github.com/YanmiYu/VR_Music.git
+2. Open in Unity (Unity 2021.3+ recommended)
+3. Import Maestro MPTK from the Unity Asset Store
+4. In the scene:
+- Attach the ExampleMidi1 script to an empty GameObject
+- Assign the MidiFilePlayer (where you select the MIDI file/music)
+- Assign the MidiPlay component (handles the visualization)
+- (Optional) Assign a cubeParent to group all generated cubes for transformation
+- Note: All scripts can be found in Assets/Scripts
 
-## Integrate Samples to your own project
-1. Make sure your project uses the same SDK version
-2. Move the samples to your project
-   <details>
-      <summary><b>Copy Samples directory</b></summary>
+## 🧠 Mapping Summary
 
-      + Copy [Assets/StarterSamples](./Assets/StarterSamples) directory to your own project
-    </details>
-    <details>
-      <summary><b>Create UnityPackage and Import it</b></summary>
+MIDI Parameter	Mapped To
+note.Value	Z-position (pitch) + color
+note.Velocity	Y-scale (volume/velocity)
+note.Duration	X-scale (note duration)
 
-      1. Open Unity-StarterSamples project in Unity
-      2. Right-click on [Assets/StarterSamples](./Assets/StarterSamples) and select <i>Export Package...</i>
-      3. Save package in an easy location to retrieve
-      4. Open your own project (where you want the samples to be added)
-      5. Click on <i>Assets->Import Package->Custom Package...</i> from the menu bar
-      6. Find the package we saved in step 3 and click <i>Open</i>
-    </details>
+## 🧹 Utility Functions
+
+Restart() – Stops and restarts the MIDI playback and visualization
+ClearAllCubes() – Clears all existing note cubes from the scene
+
+## 🪪 License
+
+MIT License. See LICENSE for details.
