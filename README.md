@@ -47,17 +47,26 @@ You can bind these functions to UI buttons or keyboard shortcuts:
 - (Optional) Assign a cubeParent to group all generated cubes for transformation
 - Note: All scripts can be found in Assets/Scripts
 
-## 🧠 Mapping Summary
+## 🧠 Note Mapping System
 
-MIDI Parameter	Mapped To
-note.Value	Z-position (pitch) + color
-note.Velocity	Y-scale (volume/velocity)
-note.Duration	X-scale (note duration)
+| MIDI Parameter  | Visual Representation       | Description                          |
+|-----------------|----------------------------|--------------------------------------|
+| `note.Value`    | Z-position + Color         | Higher pitches appear further back with cooler colors |
+| `note.Velocity` | Y-scale (height)           | Stronger velocities create taller cubes |
+| `note.Duration` | X-scale (width)            | Longer notes produce wider cubes     |
 
-## 🧹 Utility Functions
+## ⚙️ Utility Controls
 
-Restart() – Stops and restarts the MIDI playback and visualization
-ClearAllCubes() – Clears all existing note cubes from the scene
+### Playback Functions
+- `Restart()`  
+  ▸ Stops current playback and resets the visualization  
+  ▸ Useful for replaying the MIDI file from beginning
+
+### Visualization Management
+- `ClearAllCubes()`  
+  ▸ Immediately removes all active note cubes  
+  ▸ Helpful for resetting the visual space during runtime
+
 
 ## 🪪 License
 
