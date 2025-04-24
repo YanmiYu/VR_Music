@@ -390,14 +390,16 @@ public class ObjectManipulator : MonoBehaviour
     {
         if (objectNameLabel)
         {
-            objectNameLabel.text = targetObject.ObjectName;
+            objectNameLabel.text = "";
         }
 
+        
         if (objectInstructionsLabel)
         {
             if (grabObject)
             {
-                objectInstructionsLabel.text = targetObject.ObjectInstructions;
+                CubeInfo cube = targetObject.gameObject.GetComponent<CubeInfo>();
+                objectInstructionsLabel.text = "Pitch: " + cube.pitch + "; Duration: " + cube.duration+ "; Volume :" + cube.volume ;
             }
             else
             {

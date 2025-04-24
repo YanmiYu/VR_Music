@@ -12,6 +12,7 @@
   <IndexSelectedSF>0</IndexSelectedSF>
   <MidiFiles>
     <string>@ All Rights Reserved for these Midi Files</string>
+    <string>5th-Symphony-Part-1</string>
     <string>Albinoni - Adagio</string>
     <string>All Night Long</string>
     <string>Animal Crossing</string>
@@ -27,6 +28,8 @@
     <string>Baez Joan - Plaisir D'Amour</string>
     <string>Beattles - Michelle</string>
     <string>Beethoven-sonata-14-3</string>
+    <string>Believer</string>
+    <string>Believer - Imagine Dragons _Piano Solo_.mid</string>
     <string>Bizet - Arlesienne</string>
     <string>Bjork - Joga</string>
     <string>Bjork - Oh So Quiet</string>
@@ -35,8 +38,10 @@
     <string>Blues Image - Ride Captain Ride</string>
     <string>Bobby Blue Bland - A Touch Of Blues</string>
     <string>Buddy Guy - Midnight Train</string>
+    <string>Chopin_-_Nocturne_Op_9_No_2_E_Flat_Major</string>
     <string>Christopher Cross - Sailing</string>
     <string>Conan The Barbarian</string>
+    <string>d_CR2469</string>
     <string>Dark Cloud 2 - Dark Chronicle</string>
     <string>Dark Cloud 2 - Peace</string>
     <string>Dark Cloud 2 - Shop Theme</string>
@@ -49,13 +54,16 @@
     <string>Dragon Ball Z - Opening</string>
     <string>Dragon Ball Z - Super Butouden 2</string>
     <string>Eagles - Best Of My Love</string>
+    <string>Edith_Piaf_La_Vie_En_Rose</string>
     <string>Everybody loves somebody sometime 1</string>
     <string>EVO - Boss Theme</string>
     <string>Faure - Requiem</string>
     <string>Final Fantasy - Village</string>
     <string>Fire Emblem 3 - Theme</string>
+    <string>Fr_Elise</string>
     <string>Higelin Jacques - Champagne</string>
     <string>kakariko</string>
+    <string>la vie en rose</string>
     <string>ladolcevita</string>
     <string>Leo Ferre - Avec le temps</string>
     <string>Liszt - La Campanella</string>
@@ -91,6 +99,8 @@
     <string>Satie - Trois Gnossiennes</string>
     <string>Sibelius - Finlandia</string>
     <string>Sibelius - Romance</string>
+    <string>Somewhere_Over_The_Rainbow.mid</string>
+    <string>Swan_Lake_Op._20_Act_II_No._10_Lake_Scene</string>
     <string>Take 5 - by Paul Desmond</string>
     <string>Tchaikovsky - Flower Waltz</string>
     <string>Tetris2</string>

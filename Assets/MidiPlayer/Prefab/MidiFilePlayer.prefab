@@ -165,11 +165,6 @@ MonoBehaviour:
   showEvents: 0
   showDefault: 0
   spatialize: 0
-  MPTK_EffectUnity: {fileID: 0}
-  MPTK_ModeSpatializer: 0
-  MPTK_MaxSpatialSynth: 0
-  MPTK_SpatialSynthEnabled: 0
-  MPTK_InstrumentNum: 0
   midiNameToPlay: Everybody loves somebody sometime 1
   MPTK_StartPlayAtFirstNote: 0
   MPTK_StopPlayOnLastNote: 0
@@ -582,7 +577,6 @@ MonoBehaviour:
   InstanceOnEventPresetLoaded:
     m_PersistentCalls:
       m_Calls: []
-  MPTK_LiveSoundFont: 
 --- !u!1 &1973024470238730
 GameObject:
   m_ObjectHideFlags: 0
